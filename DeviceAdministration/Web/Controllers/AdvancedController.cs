@@ -5,19 +5,19 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
 {
     public class AdvancedController : Controller
     {
-        [RequirePermission(Permission.ViewAdvanced)]
+        [RequirePermission(Permission.CellularConn)]
         public ActionResult CellularConn()
         {
             return View();
         }
 
-        [RequirePermission(Permission.ViewAdvanced)]
+        [RequirePermission(Permission.HealthBeat)]
         public ActionResult HealthBeat()
         {
             return View();
         }
 
-        [RequirePermission(Permission.ViewAdvanced)]
+        [RequirePermission(Permission.LogicApps)]
         public ActionResult LogicApps()
         {
             return View();

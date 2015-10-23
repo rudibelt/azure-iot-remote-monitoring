@@ -34,7 +34,11 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
         public bool HasPermission(Permission permission, HttpContextBase httpContext)
         {
             // get the list of roles that the user must have some overlap with to have the permission
-            HashSet<string> rolesRequired = _rolePermissions[permission];
+            HashSet<string> rolesRequired;
+            if (!_rolePermissions.TryGetValue(permission, out rolesRequired))
+            {
+                rolesRequired = new HashSet<string>();
+            }
 
             foreach(var role in _allRoles)
             {
@@ -119,7 +123,13 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
             AssignRolesToPermission(Permission.DeleteRules,
                 ADMIN_ROLE_NAME);
 
-            AssignRolesToPermission(Permission.ViewAdvanced,
+            AssignRolesToPermission(Permission.HealthBeat,
+                ADMIN_ROLE_NAME);
+
+            AssignRolesToPermission(Permission.LogicApps,
+                ADMIN_ROLE_NAME);
+
+            AssignRolesToPermission(Permission.CellularConn,
                 ADMIN_ROLE_NAME);
         }
 

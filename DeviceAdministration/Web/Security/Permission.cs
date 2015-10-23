@@ -10,6 +10,7 @@
     /// </summary>
     public enum Permission
     {
+        None = 0,
         ViewDevices,
         EditDeviceMetadata,
         AddDevices,
@@ -23,6 +24,8 @@
         EditRules,
         DeleteRules,
         ViewTelemetry,
-        ViewAdvanced
+        HealthBeat,
+        LogicApps,
+        CellularConn
     }
 }

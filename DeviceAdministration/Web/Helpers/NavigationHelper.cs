@@ -5,6 +5,7 @@ using System.Linq;
 using GlobalResources;
 using Microsoft.Azure.Devices.Applications.RemoteMonitoring.Common.Helpers;
 using Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.Navigation;
+using Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.Security;
 
 namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.Helpers
 {
@@ -94,12 +95,16 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
         public static List<NavigationMenuItem> GetSubnavigationItemsForController(
             string controllerName)
         {
+            var listItems = new List<NavigationMenuItem>();
             if (controllerName == "Advanced")
             {
-                return GetAdvancedControllerSubmenuItems();
+                listItems = GetAdvancedControllerSubmenuItems();
             }
 
-            return new List<NavigationMenuItem>();
+            listItems = listItems.Where(
+                t => (t != null) && PermsChecker.HasPermission(t.MinimumPermission)).ToList();
+
+            return listItems;
         }
 
         private static List<NavigationMenuItem> GetAdvancedControllerSubmenuItems()
@@ -110,6 +115,7 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
             {
                 Action = "HealthBeat",
                 Controller ="Advanced",
+                MinimumPermission = Permission.HealthBeat,
                 Text = Strings.HealthBeat
             });
 
@@ -117,6 +123,7 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
             {
                 Action = "LogicApps",
                 Controller = "Advanced",
+                MinimumPermission = Permission.LogicApps,
                 Text = Strings.LogicApps
             });
 
@@ -124,6 +131,7 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
             {
                 Action = "CellularConn",
                 Controller = "Advanced",
+                MinimumPermission = Permission.CellularConn,
                 Text = Strings.CellularConn
             });
 

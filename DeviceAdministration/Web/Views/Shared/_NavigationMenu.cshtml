@@ -1,4 +1,6 @@
 ﻿@using System.Collections.Generic
+@using System.Linq;
+@using Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.Helpers
 @using Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.Security
 @using GlobalResources
 
@@ -9,11 +11,29 @@
         if (navigationMenuItem.Selected)
         {
             <a class="@navigationMenuItem.Class">@navigationMenuItem.Text</a>
+            continue;
         }
-        else
+
+        string actionName = navigationMenuItem.Action;
+        
+        var subNavItems = NavigationHelper.GetSubnavigationItemsForController(navigationMenuItem.Controller);
+        if ((subNavItems != null) && (subNavItems.Count != 0))
         {
-            @Html.ActionLink(navigationMenuItem.Text, navigationMenuItem.Action, navigationMenuItem.Controller, null, new { @class = navigationMenuItem.Class })
+            var firstAccessible = subNavItems.FirstOrDefault(
+                t =>
+                    (t != null) &&
+                    !string.IsNullOrEmpty(t.Action) &&
+                    PermsChecker.HasPermission(t.MinimumPermission));
+
+            if (firstAccessible == null)
+            {
+                continue;
+            }
+
+            actionName = firstAccessible.Action;
         }
+
+        @Html.ActionLink(navigationMenuItem.Text, actionName, navigationMenuItem.Controller, null, new { @class = navigationMenuItem.Class })
     }
 
     @if (PermsChecker.HasPermission(Permission.AddDevices))

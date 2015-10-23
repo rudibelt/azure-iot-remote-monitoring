@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using GlobalResources;
+using Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.Helpers;
 using Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.Security;
 
 namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.Navigation
@@ -55,7 +57,6 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
                     Controller = "Advanced",
                     Selected = false,
                     Class = "nav_advanced",
-                    MinimumPermission = Permission.ViewAdvanced,
                 },
             };
         }
@@ -68,7 +69,14 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
                 var visibleItems = new List<NavigationMenuItem>();
                 foreach(var menuItem in _navigationMenuItems)
                 {
-                    if (PermsChecker.HasPermission(menuItem.MinimumPermission))
+                    var subNavItems = NavigationHelper.GetSubnavigationItemsForController(menuItem.Controller);
+
+                    if ((subNavItems != null) && 
+                        subNavItems.Any(t => PermsChecker.HasPermission(t.MinimumPermission)))
+                    {
+                        visibleItems.Add(menuItem);
+                    }
+                    else if (PermsChecker.HasPermission(menuItem.MinimumPermission))
                     {
                         visibleItems.Add(menuItem);
                     }
