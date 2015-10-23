@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 
 namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.Security
@@ -116,6 +117,9 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
                 ADMIN_ROLE_NAME);
 
             AssignRolesToPermission(Permission.DeleteRules,
+                ADMIN_ROLE_NAME);
+
+            AssignRolesToPermission(Permission.ViewAdvanced,
                 ADMIN_ROLE_NAME);
         }
 

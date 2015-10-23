@@ -161,6 +161,15 @@ namespace GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Advanced.
+        /// </summary>
+        public static string Advanced {
+            get {
+                return ResourceManager.GetString("Advanced", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Alarm.
         /// </summary>
         public static string Alarm {
@@ -346,6 +355,15 @@ namespace GlobalResources {
         public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cellular Conn.
+        /// </summary>
+        public static string CellularConn {
+            get {
+                return ResourceManager.GetString("CellularConn", resourceCulture);
             }
         }
         
@@ -1520,6 +1538,15 @@ namespace GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Health Beat.
+        /// </summary>
+        public static string HealthBeat {
+            get {
+                return ResourceManager.GetString("HealthBeat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to IOT HUB HOSTNAME.
         /// </summary>
         public static string Hostname {
@@ -1736,6 +1763,15 @@ namespace GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Logic Apps.
+        /// </summary>
+        public static string LogicApps {
+            get {
+                return ResourceManager.GetString("LogicApps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Manufacturer.
         /// </summary>
         public static string ManufactureHeader {
@@ -1876,6 +1912,15 @@ namespace GlobalResources {
         public static string NavigationMenuItemDevices {
             get {
                 return ResourceManager.GetString("NavigationMenuItemDevices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advanced.
+        /// </summary>
+        public static string NavigationMenuItemsAdvanced {
+            get {
+                return ResourceManager.GetString("NavigationMenuItemsAdvanced", resourceCulture);
             }
         }
         

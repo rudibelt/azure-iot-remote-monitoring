@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using GlobalResources;
 using Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.Security;
 
@@ -49,6 +48,15 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
                     Class = "nav_actions",
                     MinimumPermission = Permission.ViewActions,
                 },
+                new NavigationMenuItem
+                {
+                    Text = Strings.NavigationMenuItemsAdvanced,
+                    Action = "HealthBeat",
+                    Controller = "Advanced",
+                    Selected = false,
+                    Class = "nav_advanced",
+                    MinimumPermission = Permission.ViewAdvanced,
+                },
             };
         }
 
@@ -68,21 +76,6 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
 
                 return visibleItems;
             }
-        }
-
-        public NavigationMenuItem Select(string controllerName, string actionName)
-        {
-            foreach (var navigationMenuItem in _navigationMenuItems)
-            {
-                if (navigationMenuItem.Controller == controllerName && navigationMenuItem.Action == actionName)
-                {
-                    navigationMenuItem.Selected = true;
-                    navigationMenuItem.Class = string.Format(CultureInfo.CurrentCulture, "{0} {1}", navigationMenuItem.Class, "selected");
-                    return navigationMenuItem;
-                }
-            }
-
-            return null;
         }
     }
 }

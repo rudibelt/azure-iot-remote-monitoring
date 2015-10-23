@@ -251,6 +251,7 @@
     <Compile Include="App_Start\Startup.WebApi.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ActionsController.cs" />
+    <Compile Include="Controllers\AdvancedController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\DeviceCommandController.cs" />
     <Compile Include="Controllers\DeviceController.cs" />
@@ -264,6 +265,7 @@
     <Compile Include="Filters\ErrorHandlingFilter.cs" />
     <Compile Include="Helpers\DeviceDisplayHelper.cs" />
     <Compile Include="Helpers\MvcDataHelper.cs" />
+    <Compile Include="Helpers\NavigationHelper.cs" />
     <Compile Include="Models\ActionPropertiesModel.cs" />
     <Compile Include="Models\AlertHistoryDeviceModel.cs" />
     <Compile Include="Models\EditDeviceRuleModel.cs" />
@@ -384,6 +386,7 @@
     <Content Include="Content\styles\blocks\device_view\device_details_block.less" />
     <Content Include="Content\styles\elements\error_reporting.less" />
     <Content Include="Content\styles\elements\copy_text_contents_element.less" />
+    <Content Include="Content\styles\blocks\advanced_view\advanced_block.less" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-i18n.js" />
     <Content Include="Scripts\jquery-ui-i18n.min.js" />
@@ -533,6 +536,10 @@
     <Content Include="Views\Dashboard\_TelemetryHistorySummary.cshtml" />
     <Content Include="Views\Dashboard\_AlertHistory.cshtml" />
     <Content Include="Views\DeviceRules\RemoveDeviceRule.cshtml" />
+    <Content Include="Views\Advanced\HealthBeat.cshtml" />
+    <Content Include="Views\Advanced\LogicApps.cshtml" />
+    <Content Include="Views\Advanced\CellularConn.cshtml" />
+    <Content Include="Views\Shared\_NavigationSubmenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

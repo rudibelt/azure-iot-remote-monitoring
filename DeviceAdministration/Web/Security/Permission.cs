@@ -22,6 +22,7 @@
         ViewRules,
         EditRules,
         DeleteRules,
-        ViewTelemetry
+        ViewTelemetry,
+        ViewAdvanced
     }
 }

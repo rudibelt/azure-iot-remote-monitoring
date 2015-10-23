@@ -1108,4 +1108,19 @@
   <data name="CommandCToCopy" xml:space="preserve">
     <value>Command+C to copy</value>
   </data>
+  <data name="Advanced" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="CellularConn" xml:space="preserve">
+    <value>Cellular Conn</value>
+  </data>
+  <data name="HealthBeat" xml:space="preserve">
+    <value>Health Beat</value>
+  </data>
+  <data name="LogicApps" xml:space="preserve">
+    <value>Logic Apps</value>
+  </data>
+  <data name="NavigationMenuItemsAdvanced" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
 </root>
