@@ -1,0 +1,25 @@
+﻿@using GlobalResources
+<div>
+    <fieldset class="fieldset_content"><p><br /></p></fieldset>
+    <fieldset class="fieldset_button">
+        <button class="nextButton" type="submit" id="deviceAssociationButton">
+            @Strings.Create
+        </button>
+        <button class="button_secondary" type="submit" id="deviceAssociationButton">
+            @Strings.Cancel
+        </button>
+    </fieldset>
+</div>
+<script type="text/javascript">
+    $(window).ready(
+        function () {
+            'use strict';
+            var config = {
+                subheadContent: '@Strings.ApiRegistrationTitle',
+                goBackUrl: '@Url.Action("SelectAdvancedProcess")'
+            };
+
+            IoTApp.Advanced.initSubView(config);
+        }
+    );
+</script>

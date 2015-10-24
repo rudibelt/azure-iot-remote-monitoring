@@ -206,6 +206,24 @@ namespace GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;Description of API Registration&gt;.
+        /// </summary>
+        public static string ApiRegistrationDescription {
+            get {
+                return ResourceManager.GetString("ApiRegistrationDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to API Registration.
+        /// </summary>
+        public static string ApiRegistrationTitle {
+            get {
+                return ResourceManager.GetString("ApiRegistrationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AppConfig.
         /// </summary>
         public static string AppConfig {
@@ -364,6 +382,15 @@ namespace GlobalResources {
         public static string CellularConn {
             get {
                 return ResourceManager.GetString("CellularConn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cellular Conn.
+        /// </summary>
+        public static string CellularConnViewTitle {
+            get {
+                return ResourceManager.GetString("CellularConnViewTitle", resourceCulture);
             }
         }
         
@@ -715,6 +742,24 @@ namespace GlobalResources {
         public static string DeviceAddSelectTypeError {
             get {
                 return ResourceManager.GetString("DeviceAddSelectTypeError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;Description of Device Association&gt;.
+        /// </summary>
+        public static string DeviceAssociationDescription {
+            get {
+                return ResourceManager.GetString("DeviceAssociationDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Device Association.
+        /// </summary>
+        public static string DeviceAssociationTitle {
+            get {
+                return ResourceManager.GetString("DeviceAssociationTitle", resourceCulture);
             }
         }
         
@@ -1547,6 +1592,15 @@ namespace GlobalResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Health Beat.
+        /// </summary>
+        public static string HealthBeatViewTitle {
+            get {
+                return ResourceManager.GetString("HealthBeatViewTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to IOT HUB HOSTNAME.
         /// </summary>
         public static string Hostname {
@@ -1768,6 +1822,15 @@ namespace GlobalResources {
         public static string LogicApps {
             get {
                 return ResourceManager.GetString("LogicApps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logic Apps.
+        /// </summary>
+        public static string LogicAppsViewTitle {
+            get {
+                return ResourceManager.GetString("LogicAppsViewTitle", resourceCulture);
             }
         }
         

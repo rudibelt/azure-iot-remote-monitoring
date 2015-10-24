@@ -1123,4 +1123,25 @@
   <data name="NavigationMenuItemsAdvanced" xml:space="preserve">
     <value>Advanced</value>
   </data>
+  <data name="ApiRegistrationDescription" xml:space="preserve">
+    <value>&lt;Description of API Registration&gt;</value>
+  </data>
+  <data name="ApiRegistrationTitle" xml:space="preserve">
+    <value>API Registration</value>
+  </data>
+  <data name="CellularConnViewTitle" xml:space="preserve">
+    <value>Cellular Conn</value>
+  </data>
+  <data name="DeviceAssociationDescription" xml:space="preserve">
+    <value>&lt;Description of Device Association&gt;</value>
+  </data>
+  <data name="DeviceAssociationTitle" xml:space="preserve">
+    <value>Device Association</value>
+  </data>
+  <data name="HealthBeatViewTitle" xml:space="preserve">
+    <value>Health Beat</value>
+  </data>
+  <data name="LogicAppsViewTitle" xml:space="preserve">
+    <value>Logic Apps</value>
+  </data>
 </root>

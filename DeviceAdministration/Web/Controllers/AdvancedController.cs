@@ -22,5 +22,20 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
         {
             return View();
         }
+
+        public PartialViewResult ApiRegistration()
+        {
+            return PartialView("_ApiRegistration");
+        }
+
+        public PartialViewResult DeviceAssociation()
+        {
+            return PartialView("_DeviceAssociation");
+        }
+
+        public PartialViewResult SelectAdvancedProcess()
+        {
+            return PartialView("_SelectAdvancedProcess");
+        }
     }
 }

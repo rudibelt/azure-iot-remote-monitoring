@@ -400,6 +400,7 @@
     <Content Include="Scripts\Views\Actions\ActionProperties.js" />
     <Content Include="Scripts\Views\Actions\ActionsIndex.js" />
     <Content Include="Scripts\powerbi-visuals.all.min.js" />
+    <Content Include="Scripts\Views\Advanced\Advanced.js" />
     <Content Include="Scripts\Views\Dashboard\AlertHistory.js" />
     <Content Include="Scripts\Views\Dashboard\DashboardDevicePane.js" />
     <Content Include="Scripts\Views\Dashboard\MapPane.js" />
@@ -540,6 +541,9 @@
     <Content Include="Views\Advanced\LogicApps.cshtml" />
     <Content Include="Views\Advanced\CellularConn.cshtml" />
     <Content Include="Views\Shared\_NavigationSubmenu.cshtml" />
+    <Content Include="Views\Advanced\_SelectAdvancedProcess.cshtml" />
+    <Content Include="Views\Advanced\_ApiRegistration.cshtml" />
+    <Content Include="Views\Advanced\_DeviceAssociation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
