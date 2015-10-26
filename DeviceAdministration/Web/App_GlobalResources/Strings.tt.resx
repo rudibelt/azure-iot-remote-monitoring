@@ -274,10 +274,10 @@
     <value>[Ŝūččęşş !!! !!! !!! !!! !!! !!!]</value>
   </data>
   <data name="CommandTimeCreated" xml:space="preserve">
-    <value>[ŦĨMĒ CŖĒÅŦĒĐ !!! !!!]</value>
+    <value>[ĿØCÅĿ ŦĨMĒ CŖĒÅŦĒĐ !!! !!!]</value>
   </data>
   <data name="CommandTimeUpdated" xml:space="preserve">
-    <value>[ŦĨMĒ ŮPĐÅŦĒĐ !!! !!!]</value>
+    <value>[ĿØCÅĿ ŦĨMĒ ŮPĐÅŦĒĐ !!! !!!]</value>
   </data>
   <data name="CommandValueCannotBeLongerThan1024" xml:space="preserve">
     <value>[Å čőmmäŉđ väľūę čäŉŉőŧ þę ľőŉģęř ŧĥäŉ 1024 čĥäřäčŧęřş !!! !!! !!!]</value>
@@ -413,6 +413,15 @@
   </data>
   <data name="DeviceProperties" xml:space="preserve">
     <value>[Đęvįčę Přőpęřŧįęş !!! !!!]</value>
+  </data>
+  <data name="DevicePropertiesFormattedAsStored" xml:space="preserve">
+    <value>[Đęvįčę Přőpęřŧy väľūęş äřę ƒőřmäŧŧęđ äş şŧőřęđ įŉ ĐőčūmęŉŧĐß. !!! !!! !!! !!!]</value>
+  </data>
+  <data name="DeviceProperty_CreatedTime" xml:space="preserve">
+    <value>[CřęäŧęđŦįmę (ŮŦC) !!! !!!]</value>
+  </data>
+  <data name="DeviceProperty_UpdatedTime" xml:space="preserve">
+    <value>[ŮpđäŧęđŦįmę (ŮŦC) !!! !!!]</value>
   </data>
   <data name="DeviceRules" xml:space="preserve">
     <value>[Đęvįčę Ŗūľęş !!! !!!]</value>
@@ -704,6 +713,9 @@
   </data>
   <data name="LogicApps" xml:space="preserve">
     <value>[Ŀőģįč Åppş !!! !!!]</value>
+  </data>
+  <data name="LocalTime" xml:space="preserve">
+    <value>[Ŀőčäľ Ŧįmę !!! !!!]</value>
   </data>
   <data name="LogicAppsViewTitle" xml:space="preserve">
     <value>[Ŀőģįč Åppş !!! !!!]</value>
