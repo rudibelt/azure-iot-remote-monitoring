@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using GlobalResources;
 using Microsoft.Azure.Devices.Applications.RemoteMonitoring.Common.DeviceSchema;
 using Microsoft.Azure.Devices.Applications.RemoteMonitoring.Common.Exceptions;
 using Microsoft.Azure.Devices.Applications.RemoteMonitoring.Common.Helpers;
@@ -116,6 +117,61 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
 
 
             return Json(new { wasSent = true });
+        }
+
+        [RequirePermission(Permission.ViewDevices)]
+        [ChildActionOnly]
+        [OutputCache(Duration = 1, VaryByParam = "*")]
+        public PartialViewResult CommandResult(string resultValue, string errorMessage)
+        {
+            CommandHistoryItemResultModel model = new CommandHistoryItemResultModel();
+
+            FeedbackStatusCode resolvedValue;
+            if (Enum.TryParse<FeedbackStatusCode>(
+                    resultValue,
+                    out resolvedValue))
+            {
+                switch (resolvedValue)
+                {
+                    case FeedbackStatusCode.DeliveryCountExceeded:
+                        model.ErrorMessage = Strings.CommandDeliveryCountExceeded;
+                        model.Text = Strings.Error;
+                        model.CssClass = "Error";
+                        break;
+
+                    case FeedbackStatusCode.Expired:
+                        model.ErrorMessage = Strings.CommandExpired;
+                        model.Text = Strings.Error;
+                        model.CssClass = "Error";
+                        break;
+
+                    case FeedbackStatusCode.Rejected:
+                        model.ErrorMessage = Strings.CommandRejected;
+                        model.Text = Strings.Error;
+                        model.CssClass = "Error";
+                        break;
+
+                    case FeedbackStatusCode.Success:
+                        model.ErrorMessage = string.Empty;
+                        model.Text = Strings.CommandSuccess;
+                        model.CssClass = "Success";
+                        break;
+
+                    default:
+                        model.ErrorMessage = errorMessage;
+                        model.Text = resultValue;
+                        model.CssClass = resultValue;
+                        break;
+                }
+            }
+            else if (string.IsNullOrWhiteSpace(resultValue))
+            {
+                model.ErrorMessage = string.Empty;
+                model.Text = Strings.Pending;
+                model.CssClass = "pending";
+            }
+
+            return PartialView("_CommandResult", model);
         }
 
         private List<SelectListItem> CommandListItems(dynamic device)

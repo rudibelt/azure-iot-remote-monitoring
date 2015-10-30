@@ -55,10 +55,13 @@
                                 @commandHistoryItem.Name
                             </td>
                             <td>
-                                @{string result = commandHistoryItem.Result;}
-                                @{string errorMessage = commandHistoryItem.ErrorMessage;}
-                                @(Html.Partial("_CommandResult", result, new ViewDataDictionary { { "ErrorMessage", errorMessage } }))
+                                @{
+                        Html.RenderAction(
+                            "CommandResult",
+                            new { resultValue = commandHistoryItem.Result, commandHistoryItem.ErrorMessage });
+                                }
                             </td>
+
                             <td>
                                 @DynamicValuesHelper.ConvertToJsonString(commandHistoryItem.Parameters)
                             </td>

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using GlobalResources;
-using Microsoft.Azure.Devices;
 
 namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.Helpers
 {
-    using StringPair = KeyValuePair<string, string>;
 
     /// <summary>
     /// Static Methods Related to Displaying Devices
@@ -19,48 +16,6 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
                     "DEVICEID",
                     "HOSTNAME"
                 });
-
-        /// <summary>
-        /// Gets the name of the CSS class that should be used when displaying 
-        /// a provided FeedbackStatusCode textual value.
-        /// </summary>
-        /// <param name="commandResult">
-        /// The FeedbackStatusCode textual value that will be displayed.
-        /// </param>
-        /// <returns>
-        /// The name of the CSS class that should be applied when displaying 
-        /// <paramref name="commandResult" />.
-        /// </returns>
-        public static string GetCommandResultClassName(string commandResult)
-        {
-            FeedbackStatusCode resolvedValue;
-
-            if (Enum.TryParse<FeedbackStatusCode>(
-                    commandResult,
-                    out resolvedValue))
-            {
-                switch (resolvedValue)
-                {
-                    case FeedbackStatusCode.DeliveryCountExceeded:
-                        commandResult = "Error";
-                        break;
-
-                    case FeedbackStatusCode.Expired:
-                        commandResult = "Error";
-                        break;
-
-                    case FeedbackStatusCode.Rejected:
-                        commandResult = "Error";
-                        break;
-                }
-            }
-            else if (string.IsNullOrWhiteSpace(commandResult))
-            {
-                commandResult = "pending";
-            }
-
-            return commandResult;
-        }
 
         /// <summary>
         /// Gets a value indicating whether a named Device property should be 
@@ -82,62 +37,6 @@ namespace Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.
             }
 
             return _copyControlDeviceProperties.Contains(propertyName.ToUpperInvariant());
-        }
-
-        /// <summary>
-        /// Gets localized text and error text for a Device Command's Result.
-        /// </summary>
-        /// <param name="commandResult">
-        /// The Device Command's Result.
-        /// </param>
-        /// <param name="viewStateErrorMessage">
-        /// The ViewState-provided error message text.
-        /// </param>
-        /// <returns>
-        /// Localized text and error text for a Device Command's Result, with 
-        /// text as Key and error text as Value.
-        /// </returns>
-        public static StringPair GetLocalizedCommandResultText(
-            string commandResult,
-            object viewStateErrorMessage)
-        {
-            FeedbackStatusCode resolvedValue;
-
-            if (string.IsNullOrWhiteSpace(commandResult))
-            {
-                commandResult = Strings.Pending;
-            }
-
-            var errorMessage = viewStateErrorMessage as string;
-            if (Enum.TryParse<FeedbackStatusCode>(
-                    commandResult,
-                    out resolvedValue))
-            {
-                switch (resolvedValue)
-                {
-                    case FeedbackStatusCode.DeliveryCountExceeded:
-                        errorMessage = Strings.CommandDeliveryCountExceeded;
-                        commandResult = "Error";
-                        break;
-
-                    case FeedbackStatusCode.Expired:
-                        errorMessage = Strings.CommandExpired;
-                        commandResult = "Error";
-                        break;
-
-                    case FeedbackStatusCode.Rejected:
-                        errorMessage = Strings.CommandRejected;
-                        commandResult = "Error";
-                        break;
-
-                    case FeedbackStatusCode.Success:
-                        errorMessage = string.Empty;
-                        commandResult = Strings.CommandSuccess;
-                        break;
-                }
-            }
-
-            return new StringPair(commandResult, errorMessage);
         }
 
         /// <summary>

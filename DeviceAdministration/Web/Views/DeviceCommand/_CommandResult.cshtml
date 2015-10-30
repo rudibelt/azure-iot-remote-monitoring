@@ -1,26 +1,20 @@
 ﻿@using Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.Helpers
+@using Microsoft.Azure.Devices.Applications.RemoteMonitoring.DeviceAdmin.Web.Models
 @using Microsoft.Ajax.Utilities
 @using GlobalResources
-@model string
+@model CommandHistoryItemResultModel
 @{
     var separator = string.Empty;
 
-    var localizedResults = 
-        DeviceDisplayHelper.GetLocalizedCommandResultText(
-            Model, 
-            ViewData["ErrorMessage"]);
-
-    var className = DeviceDisplayHelper.GetCommandResultClassName(Model);
-
-    if (!string.IsNullOrEmpty(localizedResults.Value))
+    if (!string.IsNullOrEmpty(Model.ErrorMessage))
     {
         separator = ":";
     }
 
-    <span class="@className.ToLowerInvariant()">@string.Format("{0}{1}", localizedResults.Key, separator)</span>
-}
+    <span class="@Model.CssClass.ToLowerInvariant()">@string.Format("{0}{1}", Model.Text , separator)</span>
 
-@if (!string.IsNullOrEmpty(separator))
-{
-    <span class="command_history__error_message" data-error-message="@localizedResults.Value">@Strings.ClickToDisplayError</span>
+    if (!string.IsNullOrEmpty(separator))
+    {
+        <span class="command_history__error_message" data-error-message="@Model.ErrorMessage">@Strings.ClickToDisplayError</span>
+    }
 }
